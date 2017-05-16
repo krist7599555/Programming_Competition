@@ -32,9 +32,7 @@ Nptr root = nullptr;
 void split_at (cNptr nd, Nptr& l, Nptr& r, int pos){
 	
 	if (!nd) return void (l = r = nullptr);
-	
 	int szl = (nd->l ? nd->l->sz : 0) + 1;
-	
 	if (pos >= szl){
 		l = nd;
 		split_at (l->r, l->r, r, pos-szl);
@@ -49,7 +47,6 @@ void split_at (cNptr nd, Nptr& l, Nptr& r, int pos){
 void merge (Nptr& nd, cNptr l, cNptr r){
 	
 	if (!l or !r) return void (nd = l ?: r);
-	
 	if (l->prio > r->prio){
 		merge (l->r, l->r, r);
 		if (nd = l) nd->fixup();
@@ -61,12 +58,10 @@ void merge (Nptr& nd, cNptr l, cNptr r){
  
 void insert_at (Nptr& nd, Nptr v, int pos){
 	
-	if (!nd) return void (nd = v);
-	
+	if (!nd) return void (nd = v);	
 	if (v->prio > nd->prio){
 		split_at (nd, v->l, v->r, pos);
 		(nd = v)->fixup();
-		
 	}else{
 		int szl = (nd->l ? nd->l->sz : 0) + 1;
 		if (pos >= szl)
@@ -80,15 +75,11 @@ void insert_at (Nptr& nd, Nptr v, int pos){
 void do_at (Nptr& nd, int pos, const function<void(Nptr&)>& op){
 	
 	int szl = (nd->l? nd->l->sz : 0) + 1;
-	
-	if (pos == szl)
-		return op(nd);
-	
+	if (pos == szl) return op(nd);
 	else{
 		if (pos < szl)
 			do_at (nd->l, pos, op);
 		else  	do_at (nd->r, pos-szl, op);
-		
 		if (nd) nd->fixup();
 	}
 }
@@ -122,36 +113,24 @@ int main(){
 	
 	cin.sync_with_stdio(0);
 	srand (time(0));
-
+	
 	char c;
 	int n,v,q,x,y;
-	cin >> n;
-
-	rep(i,0,n){
-		cin >> v;
-		insert_at (root, new Node(v), i);
-	}
 	
+	cin >> n;
+	rep(i,0,n)
+		insert_at (root, new Node((cin>>v,v), i);
 	cin >> q;
 	while (q--){
-
 		switch (cin >> c, c){
-
 			case 'I' : 	cin >> x >> v;
-					insert_at (root, new Node(v), x-1);
-					break;
-
+					insert_at (root, new Node(v), x-1); break;
 			case 'D' :	cin >> x;
-					remove_at (root, x);
-					break;
-
+					remove_at (root, x); break;
 			case 'R' :	cin >> x >> v;
-					replace_at (root, v, x);
-					break;
-
+					replace_at (root, v, x); break;
 			case 'Q' :	cin >> x >> y;
-					printf("%d\n",summary_query(x,y));
-					break;
+					printf("%d\n",summary_query(x,y)); break;
 		};
 	}
 }
