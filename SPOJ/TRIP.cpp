@@ -1,5 +1,6 @@
 // spoj : TRIP
 // by krist7599555
+// http://www.spoj.com/problems/TRIP/
 
 #include <bits/extc++.h>
 #include <iostream>
