@@ -1,3 +1,6 @@
+// spoj: SEGSQRSS
+// by krist7599555
+
 #include <bits/extc++.h>
 #include <iostream>
 #define rep(i,k,n) for(decltype(k) i=(k);i!=(n);++i)
