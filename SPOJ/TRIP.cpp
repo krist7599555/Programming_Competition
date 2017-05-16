@@ -20,7 +20,7 @@ void back_track (int i, int j, string word){ // solution 1
 	if (isCal[i][j].count(word)) return;
 	if (i == 0 or j == 0) return void (ans.insert(word));
 	isCal[i][j][word] = true;
-	if (    in1[i] ==   in2[j])	back_track (i-1, j-1, in1[i] + word);
+	if (    in1[i] ==   in2[j]) back_track (i-1, j-1, in1[i] + word);
 	if (dp[i-1][j] == dp[i][j]) back_track (i-1, j  , word);
 	if (dp[i][j-1] == dp[i][j]) back_track (i  , j-1, word);
 }
@@ -53,11 +53,11 @@ void solve(){
 			dp[i-1][j-1] + 1 : 
 			max(dp[i-1][j], dp[i][j-1]);
 	}}
-	#ifdef BACK_TRACK	// solution 1	
-		back_track (n1,n2,"");
+	#ifdef BACK_TRACK	
+		back_track (n1,n2,"");	// solution 1	
 		copy(ALL(ans),ostream_iterator<string>(cout," "));
-	#elif LEXICO // solution 2
-		print_lexico (0,0,0);
+	#elif LEXICO 		
+		print_lexico (0,0,0);	// solution 2
 	#endif
 }
 
@@ -71,6 +71,6 @@ int main(){
       n1 = strlen(in1+1);
       n2 = strlen(in2+1);
       solve();
-	  }
+    }
 }
 
