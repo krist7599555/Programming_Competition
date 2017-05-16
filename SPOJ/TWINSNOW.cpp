@@ -10,8 +10,8 @@ typedef std::vector<int> Vec;
 
 int main(){
 
-  cin.sync_with_stdio(0);
-  int n;
+	cin.sync_with_stdio(0);
+	int n;
 	cin >> n;
 	vector<Vec> vec;
 	rep(i,0,n){
@@ -32,4 +32,3 @@ int main(){
 	puts (alike ? "Twin snowflakes found." : "No two snowflakes are alike.");
 
 }
-
