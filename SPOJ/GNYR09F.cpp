@@ -22,14 +22,12 @@ int way (int l, int g, bool b){ // [strLen][Group][Bit1/0]
 }
 
 int main(){
-  cin.sync_with_stdio(0); 
+  	cin.sync_with_stdio(0); 
 	int t; 
-  cin >> t;
+  	cin >> t;
 	while (t--){
 		int no,l,g; 
 		cin >> no >> l >> g;
 		printf("%d %d\n",no,way(l+1,g,false));
 	}
-
 }
-
