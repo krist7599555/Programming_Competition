@@ -1,5 +1,6 @@
-// spoj : GNYR09F
+// spoj : GNYR09F 
 // by krist7599555
+// www.spoj.com/problems/GNYR09F/
 
 #include <bits/extc++.h>
 #include <iostream>
