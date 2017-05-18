@@ -4,8 +4,6 @@
 #include <bits/extc++.h>
 #include <iostream>
 #define rep(i,k,n) for(decltype(k) i=(k);i<(n);++i)
-using namespace __gnu_pbds;
-using namespace __gnu_cxx;
 using namespace std;
 typedef long long lli;
 
