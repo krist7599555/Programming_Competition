@@ -19,10 +19,10 @@ lli pw2[mxn];
 
 int main(){
 
-    cin.sync_with_stdio(0);
-    cin.tie(0);
-    pw2[0] = 1;
-    rep(i,1,mxn){
+	cin.sync_with_stdio(0);
+	cin.tie(0);
+	pw2[0] = 1;
+	rep(i,1,mxn){
 		pw2[i] =  pw2[i-1] * 2 % mod;
 	}
 	cin >> t;
