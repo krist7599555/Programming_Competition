@@ -35,9 +35,9 @@ int comp (int p1, int p2){
 
 int main(){
 	
-    cin.sync_with_stdio(0);
+    	cin.sync_with_stdio(0);
     
-    auto pre_process = []{
+   	auto pre_process = []{
 		rep(i,0,mxn){
 		rep(k,0,mxk){
 			_pw2[k][i] = i ? _pw2[k][i-1] * 2 % _mod[k] : 1;
