@@ -1,0 +1,49 @@
+#include <bits/extc++.h>
+#include <iostream>
+#define rep(i,k,n) for(decltype(k) i=(k);i!=(n);++i)
+#define ALL(x) x.begin(),x.end()
+using namespace std;
+typedef std::vector<int> Vec;
+
+const int mxn = 1e6 + 10;
+int  n, m;
+int8_t vist [mxn];
+Vec    conec[mxn];
+
+inline bool recur (int nw, int8_t color){
+	vist[nw] = color;
+	return all_of (ALL(conec[nw]),[=](int nx){
+		return vist[nx] ? vist[nw] != vist[nx] : recur (nx, color ^ 3);
+	});	
+}
+
+int main(){
+
+  cin.sync_with_stdio(0);
+	int t;
+	cin >> t;
+	rep(tt,1,t+1){
+		
+		cin >> n >> m;
+		std::fill_n (vist , mxn, 0);
+		std::fill_n (conec, mxn, Vec());
+		
+		while (m--){
+			int u,v;
+			cin >> u >> v;
+			conec[u].push_back(v);
+			conec[v].push_back(u);
+		}
+		
+		bool norm = true;
+		for (int i = 1; i <= n; ++i){
+			if (not vist[i]){
+				norm &= recur(i,1);
+			}
+		}
+		printf("Scenario #%d:\n",tt);
+		puts (norm ? "No suspicious bugs found!" : "Suspicious bugs found!");
+	}
+
+}
+
