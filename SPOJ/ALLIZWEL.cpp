@@ -35,7 +35,7 @@ bool recur (int _i, int _j, const char* str){
 int main(){
 	cin.sync_with_stdio(0);
 	int t;
-  cin >> t;
+  	cin >> t;
 	while (t--){
 		cin >> r >> c;
 		rep(i,0,r)
