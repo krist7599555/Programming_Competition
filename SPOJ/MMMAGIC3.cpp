@@ -14,21 +14,21 @@ int main(){
 	
 	rep(i,1,9){
 	rep(j,1,i){
-	rep(k,1,9){
-		if (i == j or i == k or j == k) continue;
-		Vec v = {i,j,k};
-		sort(all(v));
-		if (not Mickey.count(v)){
-			if (not Donald.count(Vec{i,j})){
-				Donald[Vec{i,j}] = {k};
-				Mickey[v] = Vec{i,j};
+		rep(k,1,9){
+			if (i == j or i == k or j == k) continue;
+			Vec v = {i,j,k};
+			sort(all(v));
+			if (not Mickey.count(v)){
+				if (not Donald.count(Vec{i,j})){
+					Donald[Vec{i,j}] = {k};
+					Mickey[v] = Vec{i,j};
+				}
+				else if (not Donald.count(Vec{j,i})){
+					Donald[Vec{j,i}] = {k};
+					Mickey[v] = Vec{j,i};
+				}
 			}
-			else if (not Donald.count(Vec{j,i})){
-				Donald[Vec{j,i}] = {k};
-				Mickey[v] = Vec{j,i};
-			}
-		}
-	}}
+		}}
 		//~ rep(i,1,9){ // so currious :?
 		//~ rep(j,1,9){
 			//~ cout << (Donald.count(Vec{i,j}) ? Donald[Vec{i,j}].front() : 0) << " \n"[j==8];
