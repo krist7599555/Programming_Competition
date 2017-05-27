@@ -19,13 +19,13 @@ struct Mat {
 	Mat(const initializer_list<lli>& l): c(new lli[mxsz][mxsz]) { std::copy(all(l),c[0]); }
 	~Mat(){delete[] c;}
 	
-	void operator = (const Mat& m){
+	void operator= (const Mat& m){
 		std::copy_n (m.c[0], mxsz * mxsz, c[0]);
 	}
-	lli* operator [](int i){
+	inline lli* operator [](int i){
 		return c[i];
 	}	
-	const lli* operator [](int i) const {
+	inline const lli* operator [](int i) const {
 		return c[i];
 	}
 	
@@ -39,7 +39,7 @@ struct Mat {
 		return res;
 	}
 
-	friend Mat operator ^ (Mat num, lli expo){
+	friend Mat operator^ (Mat num, lli expo){
 		Mat res(1);
 		while (expo){
 			if (expo & 1)
