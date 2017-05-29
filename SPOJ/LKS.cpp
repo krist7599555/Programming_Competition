@@ -11,12 +11,9 @@ int N,K;
 std::vector<pii> vec;
  
 DP_type solve (const int pos){
-	
-  DP_type res;
-	
-  if (pos == -1){
+	DP_type res;
+	if (pos == -1){
 		res.emplace_back(0,0);
-    
 	}else{
 		int wei = vec[pos].fi;
 		int val = vec[pos].se; 
@@ -30,7 +27,7 @@ DP_type solve (const int pos){
 		});
 		inplace_merge (res.begin(), mid, res.end());
 		while (res.back().fi > K) 
-      res.pop_back();
+			res.pop_back();
 		res.erase (res.begin(), 
 			unique(res.rbegin(),res.rend(),
 				[](pii& a, pii& b){ return a.fi == b.fi; })
