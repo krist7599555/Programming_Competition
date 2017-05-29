@@ -28,10 +28,8 @@ DP_type solve (const int pos){
 		inplace_merge (res.begin(), mid, res.end());
 		while (res.back().fi > K) 
 			res.pop_back();
-		res.erase (res.begin(), 
-			unique(res.rbegin(),res.rend(),
-				[](pii& a, pii& b){ return a.fi == b.fi; })
-				.base()
+		res.erase (res.begin(), unique(res.rbegin(),res.rend(),
+			[](pii& a, pii& b){ return a.fi == b.fi; }).base()
 		);
 	}
 	return res;
