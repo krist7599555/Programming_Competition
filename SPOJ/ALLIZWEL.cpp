@@ -20,12 +20,12 @@ bool recur (int _i, int _j, const char* str){
 	rep(k,0,8){
 		int i = _i + x[k];
 		int j = _j + y[k];
-		if (-1 < i and i < r and
-			-1 < j and j < c and
-			in[i][j] == *str and
-			not vi[i][j]){
+		if (-1 < i and i < r and -1 < j and j < c and
+		    in[i][j] == *str and not vi[i][j]){
+			
 			vi[i][j] = true;
-			if(recur(i,j,str+1)) return true;
+			if(recur(i,j,str+1)) 
+				return true;
 			vi[i][j] = false;
 		}
 	}
