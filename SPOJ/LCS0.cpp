@@ -88,12 +88,10 @@ public:
 	k_bitset  operator >> (const int& shif){ k_bitset res(*this); res >>= shif; return res; }
 	k_bitset  operator << (const int& shif){ k_bitset res(*this); res <<= shif; return res; }
 	
-	
 	friend std::ostream& operator << (std::ostream& o, const k_bitset& rhs){
 		for (auto rit = rhs._b.rbegin(); rit != rhs._b.rend(); ++rit) o << std::bitset<60>(*rit);
 		return o;
 	}
-	
 	inline bool operator[] (size_t pos){ return _b[pos/60] & 1 << pos % 60; }
 	
 	inline void toggle(size_t pos){ _b[pos/60] ^=  (1LL << pos % 60); }
@@ -137,9 +135,10 @@ int lcs (Str s1, Str s2){
 		a.set(0);       // base case
 		Bit x = a | m[c]; // x == all posible can be
 		Bit y = x ^ (x - (a << 1)); // y = nearest bit for each bit in j
-    // used xor to make difference bit to bit 1
-    // come from fen wick trick remove last bit x & x-1
-    // but we used for every bit a << 1 and it is ok to have 00000000 - 00000010 = 11111100 still fine
+		// used xor to make difference bit to bit 1
+		// come from fen wick trick remove last bit x & x-1
+		// but we used for every bit a << 1 but used minus(-) operator to do it faster
+		// it is ok to have 00000000 - 00000010 = 11111100 still fine to used own declear minus
 		a = x & y; // result of every bit in a jump to nearest one on a | m[c]
 		a.free(top); // remove bound if a<<1 > a|m[c]
 	}
