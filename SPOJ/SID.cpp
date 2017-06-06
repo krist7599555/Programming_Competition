@@ -9,12 +9,12 @@ using namespace std;
 #include <tr1/unordered_map>
 #include <ext/hash_map>
 
-std::unordered_multimap<int,int> 			      m; // AC
-//~ std::unordered_map<int,std::queue<int>> m; // TLE
-//~ std::tr1::unordered_multimap<int,int> 	m; // WA
-//~ __gnu_cxx::hash_multimap<int,int> 		  m; // WA
-//~ __gnu_pbds::gp_hash_table<int,std::queue<int>> m; // TLE
-//~ __gnu_pbds::cc_hash_table<int,std::queue<int>> m; // TLE
+std::unordered_multimap<int,int> 			m; // AC
+//~ std::unordered_map<int,std::queue<int>> 		m; // TLE
+//~ std::tr1::unordered_multimap<int,int> 		m; // WA
+//~ __gnu_cxx::hash_multimap<int,int> 		  	m; // WA
+//~ __gnu_pbds::gp_hash_table<int,std::queue<int>> 	m; // TLE
+//~ __gnu_pbds::cc_hash_table<int,std::queue<int>> 	m; // TLE
 
 int main(){
 	
