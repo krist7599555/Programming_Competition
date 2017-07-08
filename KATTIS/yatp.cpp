@@ -1,5 +1,8 @@
 // https://open.kattis.com/problems/yatp
 // centroid decomposition + convec hull trick
+// for this problem can used std::sort instance, but i challenge my self to write a class :)
+// std::sort used O (n log n) per layer, offline version
+// ConvecHull class used O (n log^2 n) per layer, online version
 #include <bits/extc++.h>
 #include <iostream>
 #define rep(i,k,n) for(int i=(k);i<=int(n);++i)
