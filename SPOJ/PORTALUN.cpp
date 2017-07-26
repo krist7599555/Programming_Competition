@@ -2,6 +2,7 @@
 // by krist7599555
 // game theory grundy number on num game 
 // mex (minimum exclusive set)
+// https://www.topcoder.com/community/data-science/data-science-tutorials/algorithm-games/
 
 #include <bits/stdc++.h>
 #include <iostream>
