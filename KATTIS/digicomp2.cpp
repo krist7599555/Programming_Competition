@@ -1,3 +1,4 @@
+// https://open.kattis.com/problems/digicomp2
 #include <bits/stdc++.h>
 #include <iostream>
 #define rep(i,k,n) for(int i=(k);i!=(n);++i)
