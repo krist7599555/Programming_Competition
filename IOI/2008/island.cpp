@@ -10,7 +10,6 @@ using namespace std;
 typedef long long lli;
 typedef std::pair<lli,lli> pii;
 typedef std::vector<lli> Vec;
-typedef std::string Str;
 
 const int mxn = 1e6 + 10;
 
@@ -54,7 +53,6 @@ pii edge[mxn];
 
 int main(){
 	cin.sync_with_stdio(0);
-	//~ std::freopen("debug.txt", "r", stdin);
 	const int n = input();
 	for(int u = 1; u <= n; ++u){
 		int v = input();
