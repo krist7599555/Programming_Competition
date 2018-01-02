@@ -1,3 +1,5 @@
+// http://hsin.hr/coci/archive/2006_2007/
+// coci 2006 #1: debug
 #include <bits/stdc++.h>
 #include <iostream>
 #define input() (*std::istream_iterator<int>(cin))
