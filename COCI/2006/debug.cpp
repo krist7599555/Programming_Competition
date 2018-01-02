@@ -14,7 +14,7 @@ enum {h = 0, rh = 1, v = 2, rv = 3};
 msk  dp[4][mxn][mxn]; // hor, ver
 char in[mxn];
 
-inline bool check(msk* it1, msk* it2, uint dis, int step){
+inline bool check(msk* it1, msk* it2, uint dis, int step){ // check it1 and it2 is mirror
 	int rem = dis % lm;
 	it1 += (rem-1) * step;
 	it2 += (dis-1) * step;
@@ -29,7 +29,6 @@ inline bool check(msk* it1, msk* it2, uint dis, int step){
 
 int main(){
 	cin.sync_with_stdio(0);
-	//~ std::freopen("debug.txt", "r", stdin);
 	int r = input();
 	int c = input();
 	rep(i,0,r){
@@ -47,12 +46,12 @@ int main(){
 		for(int sz: {2,3}){
 			// O(n^2 / 64)
 			for (int i = _i, j = _j;
-					  0 <= i and i + sz <= r 
+				    0 <= i and i + sz <= r 
 				and 0 <= j and j + sz <= c 
 				and check(&dp[h][i][j], &dp[rh][i+sz-1][j], sz, 1)
 				and check(&dp[v][i][j], &dp[rv][i][j+sz-1], sz, mxn);){
 					mx = std::max(mx, sz);
-					--i; --j; sz += 2;
+					--i; --j; sz += 2; // extend square
 	}}}}
 	printf("%d", mx ?: -1);
 	
