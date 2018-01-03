@@ -25,9 +25,10 @@ int main(){
 		rep(i,0,2){
 			loop(_,rd[i]){
 				int dif = x - input();
-				int tmp = dif >= 5 ? dif - n : dif < 0 ? dif + n : dif;
+				int dis = dif >= 5 ? dif - n : 
+					dif < 0 ? dif + n : dif; // cycle handle
 				assert (0 <= tmp and tmp < 5);
-				ar[i] |= 1 << tmp;
+				ar[i] |= 1 << dis;
 		}}
 		loop(m, 32){ // lost any fear || have any like : -max sat-
 			if((~m & ar[0]) or (m & ar[1])){
